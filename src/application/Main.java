@@ -9,12 +9,14 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage stage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("CurrencyConverterGUI.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+        Scene scene = new Scene(root);
+        stage.setTitle("Simple calculator");
+        stage.setScene(scene);
+        stage.show();
     }
+
 
 
     public static void main(String[] args) {
