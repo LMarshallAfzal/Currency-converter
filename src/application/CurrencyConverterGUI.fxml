@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -9,8 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <GridPane layoutX="50.0" layoutY="14.0" prefHeight="77.0" prefWidth="280.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <columnConstraints>
@@ -24,20 +25,20 @@
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="StartingCurrencyLbl" alignment="CENTER" layoutX="5.0" layoutY="16.0" prefHeight="46.0" prefWidth="102.0" text="Label" textAlignment="CENTER">
+                  <TextField fx:id="startingCurrencyTxt" layoutY="18.0" prefHeight="46.0" prefWidth="111.0" promptText="start">
                      <font>
                         <Font size="18.0" />
                      </font>
-                  </Label>
+                  </TextField>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                <children>
-                  <Label fx:id="StartingCurrencyLbl" alignment="CENTER" layoutX="8.0" layoutY="16.0" prefHeight="46.0" prefWidth="102.0" text="Label" textAlignment="CENTER">
+                  <TextField fx:id="resultingCurrencyTxt" layoutX="4.0" layoutY="16.0" prefHeight="46.0" prefWidth="111.0" promptText="end">
                      <font>
                         <Font size="18.0" />
                      </font>
-                  </Label>
+                  </TextField>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -51,7 +52,7 @@
             </Pane>
          </children>
       </GridPane>
-      <GridPane layoutX="50.0" layoutY="155.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <GridPane layoutX="50.0" layoutY="155.0" prefHeight="30.0" prefWidth="280.0" AnchorPane.bottomAnchor="214.6" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -64,5 +65,6 @@
             <ComboBox fx:id="resultCurrencyCmb" prefWidth="150.0" GridPane.columnIndex="1" />
          </children>
       </GridPane>
+      <Button fx:id="SelectBtn" layoutX="124.0" layoutY="116.0" mnemonicParsing="false" onAction="#onSelectButtonClicked" text="Select" />
    </children>
 </AnchorPane>
