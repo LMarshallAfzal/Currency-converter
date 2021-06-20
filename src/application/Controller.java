@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -30,6 +31,7 @@ public class Controller implements Initializable {
 
     //Instance variables
     private double startingAmount;
+    private Converter converter = new Converter();
 
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -50,12 +52,16 @@ public class Controller implements Initializable {
         CharSequence cs = startingCurrencyTxt.getCharacters();
         startingAmount = Double.parseDouble(cs.toString());
         System.out.println(startingAmount);
-
     }
 
-    public void onSelectButtonClicked()
-    {
+    public void onSelectButtonClicked() throws IOException {
         retrieveStartingAmount();
+        currencyConversion();
+    }
+
+    public void currencyConversion() throws IOException {
+        converter.sendApiGetRequest(startingCurrencyCmb.getAccessibleText(), resultCurrencyCmb.getAccessibleText(), startingAmount);
+
     }
 
 }
