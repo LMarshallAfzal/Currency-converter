@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class Converter {
     public static void sendApiGetRequest(String startCurrency, String endCurrency, double amount) throws IOException {
-        String GET_URL = "https://api.exchangeratesapi.io/v1/convert?access_key=API_KEY&from=" + startCurrency + "&to=" + endCurrency + "&amount=" + amount;
+        String GET_URL = "https://api.exchangeratesapi.io/v1/convert?access_key=531da44fa06ca35c43f81ba58f6def74&from=" + startCurrency + "&to=" + endCurrency + "&amount=" + amount;
         URL url = new URL(GET_URL);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
@@ -38,4 +38,7 @@ public class Converter {
             System.out.println("GET request failed!");
         }
     }
+    //public static void sendApiGetRequest(String startCurrency, String endCurrency, double amount) throws IOException {
+
+    //}
 }

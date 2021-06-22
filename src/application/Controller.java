@@ -60,7 +60,8 @@ public class Controller implements Initializable {
     }
 
     public void currencyConversion() throws IOException {
-        converter.sendApiGetRequest(startingCurrencyCmb.getAccessibleText(), resultCurrencyCmb.getAccessibleText(), startingAmount);
+        //converter.sendApiGetRequest(startingCurrencyCmb.getAccessibleText(), resultCurrencyCmb.getAccessibleText(), startingAmount);
+        converter.sendApiGetRequest("USD", "GBP", 100.0);
 
     }
 
