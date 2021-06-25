@@ -13,6 +13,8 @@ import java.sql.SQLOutput;
 
 
 public class Converter {
+    //Instance variables
+    private static String resultingAmount;
     /**
      * The API call for the currency conversion API. It converts a a certain amount of one currency into a second currency.
      * @param startCurrency The currency code that the API will convert from.
@@ -41,11 +43,16 @@ public class Converter {
             Double exchangeRate = object.getJSONObject("info").getDouble("rate");
 
             System.out.println(amount/exchangeRate + endCurrency);
+            resultingAmount = amount/exchangeRate + endCurrency;
             return amount/exchangeRate + endCurrency;
         }
         else {
             System.out.println("GET request failed!");
             return null;
         }
+    }
+
+    public String getResultingAmount() {
+        return resultingAmount;
     }
 }

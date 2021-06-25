@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -18,7 +19,13 @@ public class Controller implements Initializable {
     private TextField startingCurrencyTxt;
 
     @FXML
-    private TextField resultingCurrencyTxt;
+    private Label startingAmountLbl;
+
+    @FXML
+    private Label endAmountLbl;
+
+    @FXML
+    private Label arrowLbl;
 
     @FXML
     private Button selectBtn;
@@ -39,6 +46,7 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         populateComboBoxes();
+        arrowLbl.setVisible(false);
     }
 
     /**
@@ -60,7 +68,6 @@ public class Controller implements Initializable {
     {
         CharSequence cs = startingCurrencyTxt.getCharacters();
         double startingAmount = Double.parseDouble(cs.toString());
-        System.out.println(startingAmount);
         return startingAmount;
     }
 
@@ -71,6 +78,7 @@ public class Controller implements Initializable {
     public void onSelectButtonClicked() throws IOException {
         retrieveStartingAmount();
         currencyConversion(retrieveStartingAmount());
+        populateConversionFields();
     }
 
     /**
@@ -80,6 +88,13 @@ public class Controller implements Initializable {
     public void currencyConversion(double amount) throws IOException {
         converter.sendApiGetRequest(startingCurrencyCmb.getValue(), resultCurrencyCmb.getValue(), amount);
 
+    }
+
+    public void populateConversionFields() {
+        String start = String.valueOf(retrieveStartingAmount());
+        startingAmountLbl.setText(start);
+        endAmountLbl.setText(converter.getResultingAmount());
+        arrowLbl.setVisible(true);
     }
 
 }
