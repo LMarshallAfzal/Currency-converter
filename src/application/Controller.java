@@ -56,12 +56,12 @@ public class Controller implements Initializable {
     /**
      * Gets the starting amount that the user inputs into the textfield.
      */
-    public void retrieveStartingAmount()
+    public double retrieveStartingAmount()
     {
         CharSequence cs = startingCurrencyTxt.getCharacters();
-        //Instance variables
         double startingAmount = Double.parseDouble(cs.toString());
         System.out.println(startingAmount);
+        return startingAmount;
     }
 
     /**
@@ -70,16 +70,15 @@ public class Controller implements Initializable {
      */
     public void onSelectButtonClicked() throws IOException {
         retrieveStartingAmount();
-        currencyConversion();
+        currencyConversion(retrieveStartingAmount());
     }
 
     /**
      * Sends the information required by the currency converter API to the API call in the Converter class.
      * @throws IOException
      */
-    public void currencyConversion() throws IOException {
-        //converter.sendApiGetRequest(startingCurrencyCmb.getAccessibleText(), resultCurrencyCmb.getAccessibleText(), startingAmount);
-        converter.sendApiGetRequest("USD", "GBP", 100.0); //For testing
+    public void currencyConversion(double amount) throws IOException {
+        converter.sendApiGetRequest(startingCurrencyCmb.getValue(), resultCurrencyCmb.getValue(), amount);
 
     }
 
