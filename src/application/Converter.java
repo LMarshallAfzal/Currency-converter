@@ -37,8 +37,8 @@ public class Converter {
             input.close();
 
             JSONObject object = new JSONObject(response.toString());
-            Double exchangeRate = object.getJSONObject("rates").getDouble(startCurrency);
-            System.out.println(object.getJSONObject("rates"));
+            Double exchangeRate = object.getJSONObject("info").getDouble("rate");
+            System.out.println(object.getJSONObject("info").getDouble("rate"));
             System.out.println(exchangeRate);
             System.out.println();
             //For testing
@@ -48,7 +48,4 @@ public class Converter {
             System.out.println("GET request failed!");
         }
     }
-    //public static void sendApiGetRequest(String startCurrency, String endCurrency, double amount) throws IOException {
-
-    //}
 }
