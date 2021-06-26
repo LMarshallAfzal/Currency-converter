@@ -7,9 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.SQLOutput;
 
 
 public class Converter {
@@ -52,6 +50,10 @@ public class Converter {
         }
     }
 
+    /**
+     * Gets the amount of resulting currency.
+     * @return the amount of resulting currency after the exchange rate has been applied.
+     */
     public String getResultingAmount() {
         return resultingAmount;
     }

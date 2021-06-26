@@ -87,9 +87,11 @@ public class Controller implements Initializable {
      */
     public void currencyConversion(double amount) throws IOException {
         converter.sendApiGetRequest(startingCurrencyCmb.getValue(), resultCurrencyCmb.getValue(), amount);
-
     }
 
+    /**
+     * Populates the labels that show the conversion with the correct values.
+     */
     public void populateConversionFields() {
         String start = String.valueOf(retrieveStartingAmount());
         startingAmountLbl.setText(start);
