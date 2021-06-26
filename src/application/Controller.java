@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.NumberFormat;
+import java.util.Currency;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -54,7 +56,7 @@ public class Controller implements Initializable {
      */
     public void populateComboBoxes()
     {
-        ObservableList<String> list = FXCollections.observableArrayList("GBP", "EUR", "USD");
+        ObservableList<String> list = FXCollections.observableArrayList("GBP", "EUR", "USD", "AUD", "JPY", "CAD", "CHF", "CNH", "HKD", "NZD", "SEK", "MXN", "SGD", "NOK", "KRW", "TRY", "INR", "RUB", "BRL", "ZAR", "DKK", "PLN");
         startingCurrencyCmb.setItems(list);
         resultCurrencyCmb.setItems(list);
 
@@ -93,7 +95,10 @@ public class Controller implements Initializable {
      * Populates the labels that show the conversion with the correct values.
      */
     public void populateConversionFields() {
-        String start = String.valueOf(retrieveStartingAmount());
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        formatter.setCurrency(Currency.getInstance(startingCurrencyCmb.getValue()));
+
+        String start = String.valueOf(formatter.format(retrieveStartingAmount()));
         startingAmountLbl.setText(start);
         endAmountLbl.setText(converter.getResultingAmount());
         arrowLbl.setVisible(true);
