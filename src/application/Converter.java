@@ -8,12 +8,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Currency;
-import java.util.Locale;
 
-
+/**
+ * This is where the main function of that application takes place. The Converter class contains the API call function
+ * which converts a certain amount of one currency into a resulting currency using an online currency conversion API.
+ *
+ * @author Leonard Marshall Afzal
+ * @version 26/06/2021
+ */
 public class Converter {
     //Instance variables
     private static String resultingAmount;
@@ -48,7 +52,7 @@ public class Converter {
             Double exchangeRate = object.getJSONObject("info").getDouble("rate");
 
             resultingAmount = formatter.format(amount*exchangeRate);
-            return formatter.format(amount*exchangeRate);
+            return resultingAmount;
         }
         else {
             System.out.println("GET request failed!");
